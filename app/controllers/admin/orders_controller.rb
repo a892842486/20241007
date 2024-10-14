@@ -33,7 +33,10 @@ class Admin::OrdersController < ApplicationController
   def return
     @order = Order.find(params[:id])
     @order.return_good!
-    redirect_to :back    
+    redirect_to :back
   end
+
+  OrderMailer.notify_ship(@order).deliver!
+  OrderMailer.notify_cancel(@order).deliver!
 
 end

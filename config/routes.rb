@@ -33,6 +33,7 @@ resources :orders do
   member do
     post :pay_with_creditcard
     post :pay_with_ewallet
+    post :apply_to_cancel
   end
 end
 
